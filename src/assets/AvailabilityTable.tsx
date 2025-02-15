@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import type { Employee, ShiftTime } from '../App';
 
 interface AvailabilityTableProps {
@@ -22,6 +22,10 @@ export default function AvailabilityTable({
     const updatedEmployees = employees.map(emp => {
       if (emp.id === employeeId) {
         const newAvailability = { ...emp.availability };
+        // Ensure the date array exists, otherwise initialize it
+        if (!newAvailability[date]) {
+          newAvailability[date] = [];
+        }
         newAvailability[date][hour] = !newAvailability[date][hour];
         return { ...emp, availability: newAvailability };
       }

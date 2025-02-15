@@ -12,7 +12,6 @@ The **Shift Making App** is a modern web application designed to streamline shif
 
 - **React TSX**: Front-end framework for building the app's user interface with type safety.
 - **Vite**: A fast, modern build tool for improved development and production performance.
-- **html2pdf.js**: JavaScript library to easily convert HTML content to PDF format.
 - **Lucider React**: A component library for creating beautiful and easy-to-use React components.
 - **Node.js**: JavaScript runtime environment to run the app on the server.
 

@@ -58,7 +58,7 @@ Follow these steps to get the app up and running on your local machine.
 
 - **Add Shifts**: Select time slots from the available options to create shifts.
 - **Customize Schedule**: View the generated schedule and make adjustments as needed.
-- **Export to PDF**: Click the **Download** button to generate and save the shift schedule as a PDF file.
+
 
 ## Contributing
 

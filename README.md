@@ -1,6 +1,6 @@
 # Shift Making App
 
-The **Shift Making App** is a modern web application designed to streamline shift schedule management. Built with **React TSX** and **Vite**, the app enables users to create, view, and generate shift schedules, along with the ability to download them as PDFs. The app leverages **html2pdf.js** for PDF generation and **Lucider React** components for a smooth, visually appealing user experience.
+The **Shift Making App** is a modern web application designed to streamline shift schedule management. Built with **React TSX** and **Vite**, the app enables users to create, view, and generate shift schedules, along with the ability to download them as PDFs. The app leverage **Lucider React** components for a smooth, visually appealing user experience.
 
 ## Features
 
@@ -32,7 +32,7 @@ Follow these steps to get the app up and running on your local machine.
 1. **Clone the repository**:
 
     ```bash
-    git clone https://github.com/yourusername/shift-making-app.git
+    git clone https://github.com/therijalsam/Shiftmakerapp.git
     ```
 
 2. **Navigate into the project directory**:

@@ -1,50 +1,52 @@
-# React + TypeScript + Vite
+Shift Making App
+A web application built with React TSX and Vite, designed to manage and generate shift schedules. The app allows users to create, view, and download shift schedules as PDFs using the html2pdf.js library and Lucider React for smooth UI components.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Features
+Create and manage shift schedules.
+Generate shift schedules in PDF format.
+Smooth UI powered by Lucider React components.
+Built using React TSX and Vite for a fast and responsive user experience.
+Technologies Used
+React TSX: For building the app's front-end.
+Vite: For fast development and build tool.
+html2pdf.js: To generate downloadable PDF versions of shift schedules.
+Lucider React: For elegant and easy-to-use React components.
+Getting Started
+Prerequisites
+Node.js (>=14.x.x)
+Installation
+Clone the repository:
 
-Currently, two official plugins are available:
+bash
+Copy
+Edit
+git clone https://github.com/yourusername/shift-making-app.git
+Navigate into the project directory:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+bash
+Copy
+Edit
+cd shift-making-app
+Install dependencies:
 
-## Expanding the ESLint configuration
+bash
+Copy
+Edit
+npm install
+Run the development server:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+bash
+Copy
+Edit
+npm run dev
+Open the app in your browser at http://localhost:3000.
 
-- Configure the top-level `parserOptions` property like this:
+Usage
+Add shifts to the schedule by selecting the time slots.
+View and customize the generated shift schedule.
+Download the schedule as a PDF using the download button.
+Contributing
+Feel free to fork the repository and submit pull requests with improvements or bug fixes.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+License
+This project is licensed under the MIT License - see the LICENSE file for details.

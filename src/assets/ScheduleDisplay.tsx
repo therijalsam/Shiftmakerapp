@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { RefreshCw } from 'lucide-react';
+import html2pdf from 'html2pdf.js'; // Import html2pdf.js
 import type { Employee, Shift, ShiftTime } from '../App';
 
 interface ScheduleDisplayProps {
@@ -21,6 +22,8 @@ export default function ScheduleDisplay({
   shiftsPerDay,
   onReset,
 }: ScheduleDisplayProps) {
+  const pdfContentRef = useRef<HTMLDivElement>(null); // Reference for PDF content
+
   const getEmployeeName = (employeeId: string) => {
     return employees.find(emp => emp.id === employeeId)?.name || 'Unknown';
   };
@@ -40,6 +43,16 @@ export default function ScheduleDisplay({
 
   // Sort dates chronologically
   const sortedDates = [...selectedDates].sort((a, b) => a.getTime() - b.getTime());
+
+  // Handle PDF download
+  const handleDownload = () => {
+    if (pdfContentRef.current) {
+      const element = pdfContentRef.current;
+      html2pdf()
+        .from(element)
+        .save('schedule.pdf'); // Save the file as 'schedule.pdf'
+    }
+  };
 
   return (
     <div className="bg-white rounded-lg shadow p-6">
@@ -168,6 +181,59 @@ export default function ScheduleDisplay({
           </div>
         );
       })}
+
+      {/* Button to download the schedule as PDF */}
+      <div className="mt-6">
+        <button 
+          onClick={handleDownload} 
+          className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-blue-600"
+        >
+          Download as PDF
+        </button>
+      </div>
+
+      {/* Hidden content for PDF download */}
+      <div ref={pdfContentRef} className="hidden">
+        <h1 className="text-2xl font-bold">Schedule</h1>
+        {/* Optionally you can add the summary of the schedule here */}
+        <p>Final schedule data to be exported to PDF...</p>
+
+        {/* You can duplicate the actual content being displayed here */}
+        {sortedDates.map((date) => {
+          const dateString = date.toISOString().split('T')[0];
+          const dayShifts = shifts.filter(s => s.date === dateString);
+
+          // Group shifts by shift number and hour
+          const shiftsByNumber = dayShifts.reduce((acc, shift) => {
+            if (!acc[shift.shiftNumber]) {
+              acc[shift.shiftNumber] = {};
+            }
+            if (!acc[shift.shiftNumber][shift.hour]) {
+              acc[shift.shiftNumber][shift.hour] = [];
+            }
+            acc[shift.shiftNumber][shift.hour].push(shift);
+            return acc;
+          }, {} as Record<number, Record<number, Shift[]>>);
+
+          return (
+            <div key={dateString}>
+              <h3>{formatDate(date)}</h3>
+              {/* Add shift data for the PDF */}
+              {Array.from({ length: shiftsPerDay }).map((_, shiftIndex) => {
+                const shiftTime = shiftTimes[shiftIndex];
+                const shiftHours = shiftsByNumber[shiftIndex] || {};
+                
+                return (
+                  <div key={shiftIndex}>
+                    <h4>Shift {shiftIndex + 1} ({formatHour(shiftTime.start)} - {formatHour(shiftTime.end)})</h4>
+                    {/* You can list shift workers here for the PDF */}
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

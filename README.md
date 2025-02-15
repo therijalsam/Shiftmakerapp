@@ -5,7 +5,6 @@ The **Shift Making App** is a modern web application designed to streamline shif
 ## Features
 
 - **Create and Manage Shift Schedules**: Easily add shifts, set time slots, and manage schedules.
-- **Downloadable PDF Generation**: Export shift schedules as PDF files using the html2pdf.js library.
 - **Elegant UI**: Built with **Lucider React** for seamless and intuitive user interface components.
 - **Responsive Design**: Developed with **React TSX** and **Vite** to ensure fast loading times and a responsive design.
 

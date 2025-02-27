@@ -76,3 +76,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 Check out the live preview of the Shift Making App:  
 [Shift Making App Live Preview](https://shiftmakerapp-7gxx9dadd-therijalsams-projects.vercel.app/)
+
+
+
+# This app will be updated soon. I am thinking of adding AI features.
